@@ -361,7 +361,7 @@ export default class Autosuggest extends Component {
 
   onDocumentMouseUp = () => {
     if (this.pressedSuggestion && !this.justSelectedSuggestion) {
-      this.input.focus();
+      this.input && this.input.focus();
     }
     this.pressedSuggestion = null;
   };
@@ -426,7 +426,7 @@ export default class Autosuggest extends Component {
     }
 
     if (focusInputOnSuggestionClick === true) {
-      this.input.focus();
+      this.input && this.input.focus();
     } else {
       this.onBlur();
     }
@@ -474,7 +474,7 @@ export default class Autosuggest extends Component {
   onSuggestionTouchMove = () => {
     this.justSelectedSuggestion = false;
     this.pressedSuggestion = null;
-    this.input.focus();
+    this.input && this.input.focus();
   };
 
   itemProps = ({ sectionIndex, itemIndex }) => {
@@ -563,7 +563,7 @@ export default class Autosuggest extends Component {
       },
       onBlur: (event) => {
         if (this.justClickedOnSuggestionsContainer) {
-          this.input.focus();
+            this.input && this.input.focus();
           return;
         }
 
@@ -767,3 +767,4 @@ export default class Autosuggest extends Component {
     );
   }
 }
+
